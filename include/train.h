@@ -5,15 +5,16 @@
 #include <cstdint>
 
 class Train {
-private:
+ private:
     struct Car {
         bool light;
         Car* next;
         Car* prev;
+        explicit Car(bool l = false) : light(l), next(this), prev(this) {}
     };
     Car* first;
     int countOp;
-public:
+ public:
     Train();
     ~Train();
     void addCar(bool light);
