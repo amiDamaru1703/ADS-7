@@ -4,25 +4,12 @@
 
 Train::Train() : first(nullptr), countOp(0) {}
 
-Train::~Train() {
-    if (!first) return;
-
-    Car* current = first->next;
-    while (current != first) {
-        Car* temp = current;
-        current = current->next;
-        delete temp;
-    }
-    delete first;
-}
-
 void Train::addCar(bool light) {
     Car* newCar = new Car{ light, nullptr, nullptr };
     if (!first) {
         first = newCar;
         newCar->next = newCar->prev = newCar;
-    }
-    else {
+    } else {
         Car* last = first->prev;
         newCar->next = first;
         newCar->prev = last;
@@ -46,8 +33,7 @@ int Train::getLength() {
             steps = 1;
             current = current->next;
             countOp++;
-        }
-        else {
+        } else {
             steps++;
             current = current->next;
             countOp++;
