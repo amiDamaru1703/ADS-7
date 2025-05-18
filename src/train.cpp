@@ -20,8 +20,7 @@ void Train::addCar(bool light) {
         first = newCar;
         first->next = first;
         first->prev = first;
-    }
-    else {
+    } else {
         Car* last = first->prev;
         last->next = newCar;
         newCar->prev = last;
@@ -58,8 +57,7 @@ int Train::getLength() {
         }
         first->light = false;
         return len;
-    }
-    else {
+    } else {
         const Car* wal = first->next;
         ++countOp;
         int64_t length = 1;
